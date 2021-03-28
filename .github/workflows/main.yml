@@ -8,23 +8,11 @@ on:
 jobs:
    build:
       runs-on: ubuntu-latest
-
-      strategy:
-         matrix:
-            node: ['12', '14']
-
       steps:
          - uses: actions/checkout@v2
-         - uses: akhileshns/heroku-deploy@v3.12.12 # This is the actio
-         - name: Use Node.js ${{ matrix.node-version }}
-         - uses: actions/setup-node@v1
+         - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
            with:
-              node-version: ${{ matrix.node-version }}
               heroku_api_key: ${{secrets.HEROKU_API_KEY}}
               heroku_app_name: ${{ secrets.HEROKU_APP_NAME }} #Must be unique in Heroku
               heroku_email: 'nedaz503@gmail.com'
               buildpack: 'git@github.com:neda-zal/DiscordBot.git'
-
-         - name: yarn install
-           run: |
-              yarn install
