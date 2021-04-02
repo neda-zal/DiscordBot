@@ -1,5 +1,4 @@
 "use strict";
-// jshint esversion:10
 require('dotenv').config();
 const express = require('express');
 const Discord = require('discord.js');
